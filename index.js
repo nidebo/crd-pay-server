@@ -28,12 +28,10 @@ app.get('/checkout/order/:id', cors(), (req, res) => {
 })
 
 app.post('/checkout/order/:id/confirm', cors(), (req, res) => {
-    const { name, personalId } = req.body;
+    const { personalId } = req.body;
     const { id } = req.params
     console.log('id', id)
-    console.log('name', name)
     console.log('personalId', personalId)
-    orders[id].name = name
     orders[id].personalId = personalId
     orders[id].paid = true
     res.send({ ok: true })
